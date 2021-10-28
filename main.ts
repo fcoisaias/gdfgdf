@@ -1,6 +1,3 @@
-let conteo = 0
-let X = 0
-let Y = 0
 input.onButtonPressed(Button.A, function () {
     conteo = 9
     while (conteo >= 1) {
@@ -55,5 +52,35 @@ input.onButtonPressed(Button.AB, function () {
     }
 })
 input.onButtonPressed(Button.B, function () {
-	
+    basic.showNumber(A)
+    basic.showLeds(`
+        . . # . .
+        . . . . .
+        # # # # #
+        . . . . .
+        . . # . .
+        `)
+    basic.showNumber(B)
+    basic.showLeds(`
+        . . . . .
+        # # # # #
+        . . . . .
+        # # # # #
+        . . . . .
+        `)
+    if (B == 0) {
+        basic.showIcon(IconNames.Sad)
+    } else {
+        basic.showNumber(A / B)
+        basic.clearScreen()
+        basic.pause(200)
+        basic.showIcon(IconNames.Yes)
+    }
 })
+let Y = 0
+let X = 0
+let conteo = 0
+let B = 0
+let A = 0
+A = randint(0, 10)
+B = randint(0, 10)
